@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c30">
+  <meta name="description" content="Try the CanineStride mobility journal with a sample dog profile.">
+  <title>CanineStride | Mobility journal</title>
+  <link rel="icon" href="../favicon.svg">
+  <link rel="stylesheet" href="journal.css">
+  <script src="journal.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../"><img src="../favicon.svg" alt="" width="31" height="31">CanineStride</a>
+      <a class="back" href="../">Back to site</a>
+    </div>
+  </header>
+  <main>
+    <header class="intro">
+      <p class="eyebrow">Interactive prototype</p>
+      <h1>Mobility journal</h1>
+      <p>Log a change, explore two weeks of sample activity, and preview a report for your vet.</p>
+    </header>
+    <nav class="tabs" role="tablist" aria-label="Mobility journal">
+      <button id="today-tab" role="tab" aria-selected="true" aria-controls="today">Today</button>
+      <button id="trends-tab" role="tab" aria-selected="false" aria-controls="trends" tabindex="-1">Trends</button>
+      <button id="report-tab" role="tab" aria-selected="false" aria-controls="report" tabindex="-1">Vet report</button>
+    </nav>
+
+    <section id="today" role="tabpanel" aria-labelledby="today-tab">
+      <div class="profile">
+        <div>
+          <p class="eyebrow">Sample dog profile</p>
+          <h2>Meet Max</h2>
+          <p>9-year-old golden retriever</p>
+        </div>
+        <img src="../caninestride-hero-thigh.webp" alt="Max, a senior golden retriever" width="210" height="140">
+      </div>
+      <section class="card">
+        <h2>Log an observation</h2>
+        <form id="observation-form">
+          <div class="form-grid">
+            <div>
+              <label for="movement">What did you notice?</label>
+              <select id="movement" name="movement" required>
+                <option value="">Choose an observation</option>
+                <option>Stiffness after rest</option>
+                <option>Trouble getting up</option>
+                <option>Change in walking</option>
+                <option>Moving as usual</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div>
+              <label for="context">When did you notice it? <span>Optional</span></label>
+              <select id="context" name="context">
+                <option value="">Choose a context</option>
+                <option>After resting</option>
+                <option>During a walk</option>
+                <option>After a walk</option>
+                <option>On stairs</option>
+                <option>During play</option>
+              </select>
+            </div>
+          </div>
+          <label for="note">Add a detail <span>Optional</span></label>
+          <textarea id="note" name="note" maxlength="240" rows="3" placeholder="Max took longer to get up after his morning nap."></textarea>
+          <p class="hint">Practice notes are saved in this browser. Use the feedback form to send feedback to the team.</p>
+          <button class="primary" type="submit">Save observation</button>
+          <button class="quiet" type="button" id="view-report" hidden>View in report →</button>
+          <p id="save-status" role="status" class="status"></p>
+        </form>
+      </section>
+      <section class="card">
+        <h2>Saved observations</h2>
+        <ul class="observations" data-observations="edit"></ul>
+      </section>
+    </section>
+
+    <section id="trends" role="tabpanel" aria-labelledby="trends-tab" hidden>
+      <section class="card">
+        <p class="eyebrow">14-day sample history</p>
+        <h2>Daily active minutes</h2>
+        <p class="hint">Simulated readings for Max. No sensor is connected.</p>
+        <figure class="trend">
+          <div class="chart-grid">
+            <div class="axis" aria-hidden="true"><span>60</span><span>30</span><span>0</span></div>
+            <ol id="activity-chart" class="bars" aria-label="Sample active minutes for each of 14 days"></ol>
+          </div>
+          <figcaption class="chart-caption"><span>Week 1</span><span>Week 2</span></figcaption>
+        </figure>
+        <p id="chart-reading" role="status" class="chart-reading">Select a bar to see that day’s sample reading.</p>
+      </section>
+      <section class="card">
+        <h2>Your practice observations</h2>
+        <p class="hint">These observations are shown alongside the sample history.</p>
+        <ul class="observations" data-observations></ul>
+      </section>
+    </section>
+
+    <section id="report" role="tabpanel" aria-labelledby="report-tab" hidden>
+      <article class="card report-paper">
+        <p class="eyebrow">CanineStride · sample vet report</p>
+        <h2>14-day mobility summary</h2>
+        <p>Max · 9-year-old golden retriever</p>
+        <div class="summary" aria-label="Average daily active minutes, simulated">
+          <div><strong id="week-one"></strong><span>Week 1 · min/day</span></div>
+          <div><strong id="week-two"></strong><span>Week 2 · min/day</span></div>
+        </div>
+        <p class="hint">Activity values are simulated. The notes below are practice entries saved in this browser.</p>
+        <h3>Owner observations</h3>
+        <ul class="observations" data-observations></ul>
+        <h3>Questions to discuss with your vet</h3>
+        <ul class="questions">
+          <li>When did the changes first appear?</li>
+          <li>Do they happen after rest, during walks, or in other situations?</li>
+        </ul>
+      </article>
+      <button id="print-report" class="primary print-button" type="button">Print or save report</button>
+    </section>
+
+    <footer>
+      <a href="../#feedback">Give feedback on CanineStride →</a>
+    </footer>
+  </main>
+</body>
+</html>
