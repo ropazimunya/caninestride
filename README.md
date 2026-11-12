@@ -1,6 +1,6 @@
 # CanineStride
 
-CanineStride is a student-built prototype for helping dog owners track changes in mobility at home and bring clearer observations to veterinary conversations. The product concept pairs a wearable motion sticker with a companion app.
+CanineStride helps dog owners track changes in how their dogs move at home and share those observations with their veterinarian. The project pairs a proposed wearable motion sticker with a companion app for logging mobility changes, viewing activity trends, and preparing a veterinary summary.
 
 ## Try the prototype
 
